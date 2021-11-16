@@ -4,7 +4,7 @@ import cv2
 import moviepy.video.io.ImageSequenceClip
 
 
-def split_video_to_frames(path_to_video: str):
+def split_video_to_frames(path_to_video: str) -> None:
     cam = cv2.VideoCapture(path_to_video)
     name, _ = os.path.splitext(os.path.basename(path_to_video))
     path_to_save = os.path.join(os.path.dirname(path_to_video), name + '_' + 'data')
@@ -34,7 +34,7 @@ def split_video_to_frames(path_to_video: str):
     cv2.destroyAllWindows()
 
 
-def convert_frames_to_video(images_dir: str, path_out: str, fps=15):
+def convert_frames_to_video(images_dir: str, path_out: str, fps=15) -> None:
     image_files = [os.path.join(images_dir, img)
                    for img in os.listdir(images_dir)]
     image_files.sort(key=lambda x: int(os.path.basename(x).split('_')[1].split('.')[0]))
