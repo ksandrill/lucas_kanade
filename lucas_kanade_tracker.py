@@ -72,7 +72,7 @@ def calc_interesting_point_with_velocity(first_image: np.ndarray, second_image: 
         A_trans = np.array(A)  # transpose of A
         A = np.array(np.transpose(A))
         A_pinv = np.linalg.pinv(np.dot(A_trans, A))
-        vel_x, vel_y = np.dot(np.dot(A_pinv, A_trans), It)  # we have the vectors with minimized square error
+        vel_x, vel_y = np.dot(np.dot(A_pinv, A_trans), It)  # Velocity = (A_Transpose  @ A) @ A_Transpose  @ It
         # print(vel_x, vel_y)
         points_with_velocity.append(((j, i), (vel_x, vel_y)))
     return points_with_velocity
